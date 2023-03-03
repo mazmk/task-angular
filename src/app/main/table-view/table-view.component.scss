@@ -1,0 +1,23 @@
+//.table-view-tbl {
+//  width: 100%;
+//
+//  tbody {
+//    .mat-mdc-table {
+//      background-color: blue !important;
+//      margin: 1% 0;
+//    }
+//  }
+//}
+
+//.mat-table {
+//  border-collapse: separate!important;
+//  border-spacing:0 4px!important;
+//}
+
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}

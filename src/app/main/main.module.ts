@@ -12,6 +12,9 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {MainRoutingModule} from './main-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { TableViewComponent } from './table-view/table-view.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +30,8 @@ import { TableViewComponent } from './table-view/table-view.component';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    MatTableModule,
+    MatSortModule,
   ]
 })
 export class MainModule {
