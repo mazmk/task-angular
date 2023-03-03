@@ -1,0 +1,15 @@
+.navbar-top-main {
+  margin: 1%;
+}
+
+.mat-nav-custom-style-main {
+  border-radius: 8px;
+
+  div {
+    width: 100%;
+    .nav-toolbar-content {
+      float: right !important;
+    }
+  }
+
+}

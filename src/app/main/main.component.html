@@ -1,1 +1,24 @@
-<p>main works!</p>
+<div class="main-div">
+  <mat-drawer-container class="main-nav-container" autosize>
+    <mat-drawer disableClose="true" opened="true" #drawer class="main-sidenav" mode="side">
+      <p>Auto-resizing sidenav</p>
+      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button>
+    </mat-drawer>
+
+    <div class="main-sidenav-content">
+      <div class="sub-sidenav-content">
+        <app-navbar></app-navbar>
+
+        <p>gkjafks</p>
+        <button type="button" mat-button (click)="drawer.toggle()">
+          Toggle sidenav
+        </button>
+      </div>
+    </div>
+
+  </mat-drawer-container>
+
+</div>
