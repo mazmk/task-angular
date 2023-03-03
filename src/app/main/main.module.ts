@@ -10,11 +10,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {NavbarComponent} from './navbar/navbar.component';
 import {MainRoutingModule} from './main-routing.module';
+import { HeaderComponent } from './header/header.component';
+import { TableViewComponent } from './table-view/table-view.component';
 
 @NgModule({
   declarations: [
     MainComponent,
     NavbarComponent,
+    HeaderComponent,
+    TableViewComponent,
   ],
   imports: [
     CommonModule,
