@@ -1,0 +1,29 @@
+p-panelmenu {
+    width: 100% !important;
+    ::ng-deep{
+
+        div{
+            width: 100% !important;
+        }
+    }
+}
+
+.app-sidebar-main{
+    padding: 25px 1px;
+}
+
+.logo-wrapper{
+    display: flex;
+    flex-direction: row;
+
+}
+.fs-l{
+    font-size: large;
+}
+.sidebar-item{
+    margin: 20px 0;
+
+}
+.sidebar-panel{
+    width: 100% !important; display: flex;
+}

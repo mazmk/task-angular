@@ -1,11 +1,14 @@
 <div class="main-div">
   <mat-drawer-container class="main-nav-container" autosize>
     <mat-drawer disableClose="true" opened="true" #drawer class="main-sidenav" mode="side">
-      <p>Auto-resizing sidenav</p>
-      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-      <button (click)="showFiller = !showFiller" mat-raised-button>
-        Toggle extra text
-      </button>
+      <div class="sidebar-wrapper">
+        <app-sidebar></app-sidebar>
+      </div>
+      <!--      <p>Auto-resizing sidenav</p>-->
+      <!--      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>-->
+      <!--      <button (click)="showFiller = !showFiller" mat-raised-button>-->
+      <!--        Toggle extra text-->
+      <!--      </button>-->
     </mat-drawer>
 
     <div class="main-sidenav-content">
@@ -13,10 +16,10 @@
         <app-navbar></app-navbar>
         <app-header></app-header>
         <app-table-view></app-table-view>
-<!--        <p>gkjafks</p>-->
-<!--        <button type="button" mat-button (click)="drawer.toggle()">-->
-<!--          Toggle sidenav-->
-<!--        </button>-->
+        <!--        <p>gkjafks</p>-->
+        <!--        <button type="button" mat-button (click)="drawer.toggle()">-->
+        <!--          Toggle sidenav-->
+        <!--        </button>-->
       </div>
     </div>
 

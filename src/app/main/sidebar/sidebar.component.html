@@ -1,0 +1,33 @@
+<!--<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">-->
+
+<!--  &lt;!&ndash; This is the tree node template for leaf nodes &ndash;&gt;-->
+<!--  <mat-tree-node *matTreeNodeDef="let node">-->
+<!--    &lt;!&ndash; use a disabled button to provide padding for tree leaf &ndash;&gt;-->
+<!--    <button mat-icon-button disabled></button>-->
+<!--    {{node.name}}-->
+<!--    <span><mat-icon class="cp" aria-hidden="false" aria-label="Example home icon" [fontIcon]="node.icon"></mat-icon></span>-->
+<!--  </mat-tree-node>-->
+<!--  &lt;!&ndash; This is the tree node template for expandable nodes &ndash;&gt;-->
+<!--  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>-->
+<!--    <span><mat-icon class="cp" aria-hidden="false" aria-label="Example home icon" [fontIcon]="node.icon"></mat-icon></span>-->
+<!--    &nbsp;-->
+<!--    {{node.name}}-->
+<!--    <button mat-icon-button matTreeNodeToggle-->
+<!--            [attr.aria-label]="'Toggle ' + node.name">-->
+<!--      <mat-icon class="mat-icon-rtl-mirror">-->
+<!--        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}-->
+<!--      </mat-icon>-->
+<!--    </button>-->
+<!--  </mat-tree-node>-->
+<!--</mat-tree>-->
+
+
+<!-- <h1>LMS</h1> -->
+<div class="app-sidebar-main">
+
+    <span class="logo-wrapper sidebar-item"><img src="./assets/blackboard.svg" width="120px" alt="lms" srcset=""></span>
+    <h3 class="fs-l sidebar-item">Home</h3>
+    <div class="sidebar-panel sidebar-item">
+        <p-panelMenu [model]="items" [style]="{'width':'300px'}"></p-panelMenu>
+    </div>
+</div>

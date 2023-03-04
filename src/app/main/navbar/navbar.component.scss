@@ -12,7 +12,33 @@
     width: 100%;
     .nav-toolbar-content {
       float: right;
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 225px;
+      span{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        * {
+          font-size: 120%;
+          //height: 200%;
+          color: #6385f4;
+          //border: black 1px solid;
+        }
+      }
     }
   }
 
+}
+
+.header-avatar{
+  border-radius: 50%;
+}
+.header-item{
+  width: 35px;
+  height: 35px;
 }
