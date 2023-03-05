@@ -1,7 +1,5 @@
 @import "./../../../variables";
-.navbar-top-main {
-  //margin: 1%;
-}
+
 
 .mat-nav-custom-style-main {
   border-radius: 8px;
@@ -12,7 +10,31 @@
     width: 100%;
     .nav-toolbar-content {
       float: right;
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 225px;
+      span{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        * {
+          font-size: 120%;
+          color: #6385f4;
+        }
+      }
     }
   }
 
+}
+
+.header-avatar{
+  border-radius: 50%;
+}
+.header-item{
+  width: 35px;
+  height: 35px;
 }
