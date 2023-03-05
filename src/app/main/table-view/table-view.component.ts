@@ -1,44 +1,100 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {ELEMENT_DATA} from "./table-view-data";
-import {MatSort, Sort} from '@angular/material/sort';
-import {LiveAnnouncer} from '@angular/cdk/a11y';
-import {MatTableDataSource} from '@angular/material/table';
+import { Component, Input, ViewChild } from '@angular/core';
+import {
+  ELEMENT_DATA,
+  PeriodicElement,
+  Representative,
+} from './table-view-data';
+import { Table } from 'primeng/table';
+import { MenuItem } from 'primeng/api';
 
+import { EditTeacherComponent } from '../edit-teacher/edit-teacher.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-table-view',
   templateUrl: './table-view.component.html',
-  styleUrls: ['./table-view.component.scss']
+  styleUrls: ['./table-view.component.scss'],
 })
 export class TableViewComponent {
-  displayedColumns: string[] = [
-    "name",
-    "gender",
-    "birthDate",
-    "class",
-    "email",
-    "teacherId",
-    "subjects",
-  ];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
-  constructor(private _liveAnnouncer: LiveAnnouncer) {
-  }
-  @ViewChild(MatSort) sort: MatSort;
+  selectedTeachers: PeriodicElement[];
 
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
+  representatives: Representative[];
+  contextMenu: MenuItem[];
+  statuses: any[];
+  contextItem: PeriodicElement;
+  loading: boolean = false;
+  editingTeacher: PeriodicElement;
+
+  @Input() teachers: PeriodicElement[]
+
+  @ViewChild('dt') table: Table;
+  view: any;
+
+  display: boolean = false;
+  editTeacher: boolean = true;
+  toggleDialogue() {
+    this.display = !this.display;
   }
 
-  /** Announce the change in sort state for assistive technology. */
-  announceSortChange(sortState: Sort) {
-    // This example uses English messages. If your application supports
-    // multiple language, you would internationalize these strings.
-    // Furthermore, you can customize the message to add additional
-    // details about the values being sorted.
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
+  constructor(public dialog: MatDialog) {
+    this.contextMenu = [
+      {
+        label: 'Edit',
+        icon: 'pi pi-fw pi-refresh',
+        command: (event) => this.editRow(),
+      },
+      {
+        label: 'Delete',
+        icon: 'pi pi-fw pi-trash',
+        command: (event) => (this.display = true),
+      },
+    ];
+  }
+
+  _editTeacher(data: PeriodicElement){
+    const dialogRef = this.dialog.open(EditTeacherComponent, {data});
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  editRow() {
+    const index = this.teachers.findIndex(
+      (i) => i.teacherId === this.contextItem.teacherId
+    );
+    if (index !== -1) {
+      this.editingTeacher = this.teachers[index];
     }
+    const dialogRef = this.dialog.open(EditTeacherComponent, {data: this.editingTeacher});
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  deleteRow() {
+    const index = this.teachers.findIndex(
+      (i) => i.teacherId === this.contextItem.teacherId
+    );
+    if (index !== -1) {
+      this.teachers = this.teachers.filter(
+        (teacher) => teacher.teacherId !== this.contextItem.teacherId
+      );
+    }
+    this.display = false;
+  }
+  
+  onClickHandler(item: PeriodicElement) {
+    setTimeout(() => {
+      this.view = item;
+    }, 100);
+  }
+  handleCloseDetails(data: string | undefined) {
+    if (data == 'clicked outside') {
+      this.view = false;
+    }
+  }
+  handleRowRightClick(data: PeriodicElement) {
+    this.contextItem = data;
   }
 }
