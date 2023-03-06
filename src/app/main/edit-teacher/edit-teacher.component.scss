@@ -1,21 +1,21 @@
-.col-4{
-    mat-form-field{
-        width: 100%;
-        ::ng-deep{
-            mat-icon{
-                color: #00afb9;
-            }
-        }
+.col-4 {
+  mat-form-field {
+    width: 100%;
+    ::ng-deep {
+      mat-icon {
+        color: #00afb9;
+      }
     }
+  }
 }
 
-.edit-action{
-    display: flex;
-    justify-content: flex-end;
-    button{
-        width: 20%;
-    }
-    :first-of-type(button){
-        background-color: black;
-    }
+.edit-action {
+  display: flex;
+  justify-content: flex-end;
+  button {
+    width: 20%;
+  }
+  :first-of-type(button) {
+    background-color: black;
+  }
 }

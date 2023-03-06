@@ -1,36 +1,48 @@
 <div class="vt-main">
+  <!-- Avatar, Name, Class section -->
   <div class="av-section">
     <img src="./assets/header.jpg" alt="avatar" />
-    <span>{{item.name}}</span>
+    <span>{{ item.name }}</span>
     <span>Class 6th, D</span>
   </div>
   <hr class="info-hr" />
   <div class="info-section">
     <span class="info">Information</span>
     <span>
-        <!-- <span> -->
-          <mat-icon class="cp" aria-hidden="false" aria-label="close icon" fontIcon="phone"></mat-icon>
-        <!-- </span> -->
-        &nbsp;
-        <span>999-999-999</span>
-      </span>
-    <span>
-      <!-- <span> -->
-        <mat-icon class="cp" aria-hidden="false" aria-label="close icon" fontIcon="email"></mat-icon>
-      <!-- </span> -->
+      <mat-icon
+        class="cp"
+        aria-hidden="false"
+        aria-label="close icon"
+        fontIcon="phone"
+      ></mat-icon>
       &nbsp;
-      <span>{{item.email}}</span>
+      <span>999-999-999</span>
+    </span>
+    <span>
+      <mat-icon
+        class="cp"
+        aria-hidden="false"
+        aria-label="close icon"
+        fontIcon="email"
+      ></mat-icon>
+      &nbsp;
+      <!-- Email -->
+      <span>{{ item.email }}</span>
     </span>
   </div>
   <hr class="info-hr" />
   <div class="info-section">
     <span class="info">Subjects</span>
     <span>
-      <!-- <span> -->
-        <mat-icon class="cp" aria-hidden="false" aria-label="close icon" fontIcon="book"></mat-icon>
-      <!-- </span> -->
+      <mat-icon
+        class="cp"
+        aria-hidden="false"
+        aria-label="close icon"
+        fontIcon="book"
+      ></mat-icon>
       &nbsp;
-      <span>{{item.subjects}}</span>
+      <!-- Subjects -->
+      <span>{{ item.subjects }}</span>
     </span>
   </div>
 </div>

@@ -20,3 +20,15 @@
     </div>
   </mat-drawer-container>
 </div>
+<p-dialog
+  class="dlt-p-dialog"
+  [(visible)]="displayBasic"
+  [style]="{ width: '25vw' }"
+  [baseZIndex]="10000"
+>
+  <span class="action-dialog-custom">
+    <img src="./assets/check-mark.svg" alt="done" />
+    <span>Changes Saved</span>
+    <button (click)="this.displayBasic = false">Close</button>
+  </span>
+</p-dialog>

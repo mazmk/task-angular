@@ -36,20 +36,19 @@
       font-weight: 400;
     }
     span:nth-of-type(2) {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        align-content: center;
-        margin-top: 7px;
-
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      align-content: center;
+      margin-top: 7px;
     }
     span:nth-of-type(3) {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            align-content: center;
-            margin-top: 7px;
-        }
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      align-content: center;
+      margin-top: 7px;
+    }
   }
   .info-hr {
     width: 82%;

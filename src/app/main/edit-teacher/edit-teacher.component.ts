@@ -25,17 +25,17 @@ export class EditTeacherComponent {
     birthDate: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     teacherId: new FormControl('', [Validators.required]),
-    picture: new FormControl({value:'', disabled: true}),
+    picture: new FormControl({ value: '', disabled: true }),
     subjects: new FormControl('', [Validators.required]),
   });
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: PeriodicElement,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private dialogRef: MatDialogRef<EditTeacherComponent>
   ) {
     if (data) {
-      console.log(data);
       this.editing = true;
+      this.editinId = data.index;
       const names = data.name.split(' ');
       this.form.patchValue({
         lNameAr: names[1],
@@ -73,9 +73,8 @@ export class EditTeacherComponent {
       data.birthDate = dd + '/' + mm + '/' + yyyy;
       this.dialogRef.close({ ...data, editinId: this.editinId });
     }
-    debugger;
   }
-  closeModal(){
+  closeModal() {
     this.dialogRef.close(false);
   }
 }

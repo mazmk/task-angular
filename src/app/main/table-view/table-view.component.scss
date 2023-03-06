@@ -1,6 +1,5 @@
 @import "./../../../variables.scss";
 
-
 table {
   width: 100%;
 }
@@ -37,7 +36,6 @@ table {
   display: flex;
   flex-direction: column;
   padding: 40px 0;
-  /* align-content: center; */
   justify-content: center;
   align-items: center;
   p {
@@ -71,7 +69,4 @@ table {
       padding: 0;
     }
   }
-}
-.edit-dialogue{
-
 }

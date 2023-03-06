@@ -1,9 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import {
-  ELEMENT_DATA,
-  PeriodicElement,
-  Representative,
-} from './table-view-data';
+import { PeriodicElement, Representative } from './table-view-data';
 import { Table } from 'primeng/table';
 import { MenuItem } from 'primeng/api';
 
@@ -25,16 +21,14 @@ export class TableViewComponent {
   loading: boolean = false;
   editingTeacher: PeriodicElement;
 
-  @Input() teachers: PeriodicElement[]
+  @Input() teachers: PeriodicElement[];
 
   @ViewChild('dt') table: Table;
   view: any;
 
   display: boolean = false;
-  editTeacher: boolean = true;
-  toggleDialogue() {
-    this.display = !this.display;
-  }
+  displayBasic: boolean = false;
+  editTeacher: boolean = false;
 
   constructor(public dialog: MatDialog) {
     this.contextMenu = [
@@ -51,12 +45,8 @@ export class TableViewComponent {
     ];
   }
 
-  _editTeacher(data: PeriodicElement){
-    const dialogRef = this.dialog.open(EditTeacherComponent, {data});
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+  toggleDialogue() {
+    this.display = !this.display;
   }
 
   editRow() {
@@ -66,12 +56,20 @@ export class TableViewComponent {
     if (index !== -1) {
       this.editingTeacher = this.teachers[index];
     }
-    const dialogRef = this.dialog.open(EditTeacherComponent, {data: this.editingTeacher});
+    const dialogRef = this.dialog.open(EditTeacherComponent, {
+      data: {...this.editingTeacher, index},
+    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+    dialogRef.afterClosed().subscribe((result) => {
+      this.editTeacher = true;
+      if (result){
+        this.teachers[result.editinId] = result;
+        this.displayBasic = true;
+      }
     });
   }
+
+  // Function to find and delete the selected row
   deleteRow() {
     const index = this.teachers.findIndex(
       (i) => i.teacherId === this.contextItem.teacherId
@@ -82,18 +80,21 @@ export class TableViewComponent {
       );
     }
     this.display = false;
+    this.displayBasic = true;
   }
-  
+
   onClickHandler(item: PeriodicElement) {
     setTimeout(() => {
       this.view = item;
     }, 100);
   }
+
   handleCloseDetails(data: string | undefined) {
     if (data == 'clicked outside') {
       this.view = false;
     }
   }
+
   handleRowRightClick(data: PeriodicElement) {
     this.contextItem = data;
   }

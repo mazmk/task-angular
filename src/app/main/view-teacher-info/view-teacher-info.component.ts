@@ -1,4 +1,10 @@
-import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+} from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { PeriodicElement } from '../table-view/table-view-data';
 
@@ -19,12 +25,14 @@ import { PeriodicElement } from '../table-view/table-view-data';
     ]),
   ],
 })
-export class ViewTeacherInfoComponent implements OnInit {
+export class ViewTeacherInfoComponent {
   @Output() closeDetails = new EventEmitter<string>();
 
-  @Input() item: PeriodicElement|any; // = ''; // decorate the property with @Input()
+  @Input() item: PeriodicElement | any; // = '';
   private wasInside = false;
   public text: String;
+
+  // Function to listen for click inside the component
   @HostListener('click')
   clickInside() {
     this.text = 'clicked inside';
@@ -32,6 +40,7 @@ export class ViewTeacherInfoComponent implements OnInit {
     this.evaluateDetailsView();
   }
 
+  // Function to listen for click outside the component
   @HostListener('document:click')
   clickout() {
     if (!this.wasInside) {
@@ -44,14 +53,11 @@ export class ViewTeacherInfoComponent implements OnInit {
     this.evaluateDetailsView();
   }
 
+  // Function to unmount the component in case of click outside the component
   evaluateDetailsView() {
-    console.log(this.text, ', was inside: ', this.wasInside);
     if (this.text === 'clicked outside' && !this.wasInside) {
       this.closeDetails.emit('clicked outside');
     }
   }
 
-  ngOnInit(): void {
-    console.log(this.item);
-  }
 }
