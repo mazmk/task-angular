@@ -124,3 +124,18 @@
     <button (click)="toggleDialogue()" mat-button>Cancel</button>
   </div>
 </p-dialog>
+
+<p-dialog
+  class="dlt-p-dialog"
+  [(visible)]="displayBasic"
+  [style]="{ width: '25vw' }"
+  [baseZIndex]="10000"
+>
+  <span class="action-dialog-custom">
+    <img src="./assets/check-mark.svg" alt="done" />
+    <span>{{ editTeacher ? "Changes Saved" : "Entries Deleted" }}</span>
+    <button (click)="this.displayBasic = false; this.editTeacher = false">
+      Close
+    </button>
+  </span>
+</p-dialog>

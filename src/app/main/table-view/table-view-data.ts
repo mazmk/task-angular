@@ -31,8 +31,6 @@ export interface Customer {
   activity?: number;
 }
 
-
-
 export const ELEMENT_DATA: PeriodicElement[] = [
   {
     name: 'Michelle Cain',

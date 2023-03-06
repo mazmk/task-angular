@@ -25,13 +25,14 @@ export class TableViewComponent {
   loading: boolean = false;
   editingTeacher: PeriodicElement;
 
-  @Input() teachers: PeriodicElement[]
+  @Input() teachers: PeriodicElement[];
 
   @ViewChild('dt') table: Table;
   view: any;
 
   display: boolean = false;
-  editTeacher: boolean = true;
+  displayBasic: boolean = false;
+  editTeacher: boolean = false;
   toggleDialogue() {
     this.display = !this.display;
   }
@@ -51,14 +52,6 @@ export class TableViewComponent {
     ];
   }
 
-  _editTeacher(data: PeriodicElement){
-    const dialogRef = this.dialog.open(EditTeacherComponent, {data});
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
   editRow() {
     const index = this.teachers.findIndex(
       (i) => i.teacherId === this.contextItem.teacherId
@@ -66,9 +59,15 @@ export class TableViewComponent {
     if (index !== -1) {
       this.editingTeacher = this.teachers[index];
     }
-    const dialogRef = this.dialog.open(EditTeacherComponent, {data: this.editingTeacher});
+    const dialogRef = this.dialog.open(EditTeacherComponent, {
+      data: this.editingTeacher,
+    });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
+      this.teachers[result.editingId] = result;
+      this.editTeacher = true;
+      this.displayBasic = true;
+
       console.log(`Dialog result: ${result}`);
     });
   }
@@ -82,8 +81,9 @@ export class TableViewComponent {
       );
     }
     this.display = false;
+    this.displayBasic = true;
   }
-  
+
   onClickHandler(item: PeriodicElement) {
     setTimeout(() => {
       this.view = item;

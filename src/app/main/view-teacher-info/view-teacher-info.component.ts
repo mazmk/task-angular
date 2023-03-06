@@ -1,4 +1,11 @@
-import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { PeriodicElement } from '../table-view/table-view-data';
 
@@ -22,7 +29,7 @@ import { PeriodicElement } from '../table-view/table-view-data';
 export class ViewTeacherInfoComponent implements OnInit {
   @Output() closeDetails = new EventEmitter<string>();
 
-  @Input() item: PeriodicElement|any; // = ''; // decorate the property with @Input()
+  @Input() item: PeriodicElement | any; // = ''; // decorate the property with @Input()
   private wasInside = false;
   public text: String;
   @HostListener('click')

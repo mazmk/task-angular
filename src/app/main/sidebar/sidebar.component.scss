@@ -17,25 +17,25 @@ p-panelmenu {
 element.style {
 }
 .main-div[_ngcontent-pmm-c185] * {
-    color: #524f69;
+  color: #524f69;
 }
-p-panelmenusub{
-    ::ng-deep{
-        border: none;
-    }
+p-panelmenusub {
+  ::ng-deep {
+    border: none;
+  }
 }
 .p-panelmenu .p-panelmenu-content {
-    padding: 0.25rem 0;
-    
-    background: #ffffff;
-    color: #495057;
-    margin-bottom: 4px;
-    border-top: 0;
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-    border-bottom-right-radius: 6px;
-    border-bottom-left-radius: 6px;
-    border: none !important;
+  padding: 0.25rem 0;
+
+  background: #ffffff;
+  color: #495057;
+  margin-bottom: 4px;
+  border-top: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border: none !important;
 }
 
 .app-sidebar-main {

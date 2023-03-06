@@ -1,11 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 .cp {
   cursor: pointer !important;
+}
+.action-dialog-custom {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  * {
+    margin: 10px 0;
+  }
+  span {
+    font-weight: 500;
+  }
+  img {
+    width: 40px;
+  }
+  button {
+    border: none;
+    outline: none;
+    background-color: #00afb9;
+    color: white !important;
+    padding: 10px 15px;
+    border-radius: 5px;
+    width: 80%;
+  }
 }

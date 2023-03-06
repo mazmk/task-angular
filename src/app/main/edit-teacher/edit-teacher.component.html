@@ -7,9 +7,7 @@
         <mat-form-field appearance="outline">
           <mat-label>First Name (Arabic)</mat-label>
           <input formControlName="fNameAr" matInput />
-          <mat-icon matSuffix (click)="clearVal($event)"
-            >cancel</mat-icon
-          >
+          <mat-icon matSuffix (click)="clearVal($event)">cancel</mat-icon>
           <!-- <mat-hint>Hint</mat-hint> -->
         </mat-form-field>
         <mat-form-field appearance="outline">
@@ -32,12 +30,14 @@
               <mat-option value="Economics">Economics</mat-option>
             </mat-select>
           </mat-form-field> -->
-          <mat-form-field appearance="outline">
-            <mat-label>Select Subjects</mat-label>
-            <mat-select formControlName="subjects" multiple>
-              <mat-option *ngFor="let topping of allSubjects" [value]="topping">{{topping}}</mat-option>
-            </mat-select>
-          </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Select Subjects</mat-label>
+          <mat-select formControlName="subjects" multiple>
+            <mat-option *ngFor="let topping of allSubjects" [value]="topping">{{
+              topping
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
         <!-- <mat-form-field appearance="outline">
           <mat-label>Select Subjects</mat-label>
           <input formControlName="subjects" matInput />

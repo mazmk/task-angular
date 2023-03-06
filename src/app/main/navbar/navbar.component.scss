@@ -1,6 +1,5 @@
 @import "./../../../variables";
 
-
 .mat-nav-custom-style-main {
   border-radius: 8px;
   box-shadow: $primary-md-box-shadow;
@@ -16,7 +15,7 @@
       align-items: center;
       justify-content: space-evenly;
       width: 225px;
-      span{
+      span {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -28,13 +27,12 @@
       }
     }
   }
-
 }
 
-.header-avatar{
+.header-avatar {
   border-radius: 50%;
 }
-.header-item{
+.header-item {
   width: 35px;
   height: 35px;
 }

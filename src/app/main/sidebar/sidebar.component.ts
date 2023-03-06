@@ -10,7 +10,6 @@ interface FoodNode {
   children?: FoodNode[];
 }
 
-
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -68,13 +67,12 @@ export class SidebarComponent implements OnInit {
     ];
   }
 
-  addTeacher(){
-    const dialogRef = this.dialog.open(EditTeacherComponent,);
+  addTeacher() {
+    const dialogRef = this.dialog.open(EditTeacherComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
       this.elementAdded.emit(result);
     });
   }
-
 }

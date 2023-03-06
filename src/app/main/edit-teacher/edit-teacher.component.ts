@@ -25,7 +25,7 @@ export class EditTeacherComponent {
     birthDate: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     teacherId: new FormControl('', [Validators.required]),
-    picture: new FormControl({value:'', disabled: true}),
+    picture: new FormControl({ value: '', disabled: true }),
     subjects: new FormControl('', [Validators.required]),
   });
 
@@ -73,9 +73,9 @@ export class EditTeacherComponent {
       data.birthDate = dd + '/' + mm + '/' + yyyy;
       this.dialogRef.close({ ...data, editinId: this.editinId });
     }
-    debugger;
+    // debugger;
   }
-  closeModal(){
+  closeModal() {
     this.dialogRef.close(false);
   }
 }

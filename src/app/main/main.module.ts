@@ -33,11 +33,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditTeacherComponent } from './edit-teacher/edit-teacher.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
-
 
 @NgModule({
   declarations: [
@@ -80,8 +78,6 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule,
   ],
-  providers:[
-    MatDatepickerModule
-  ]
+  providers: [MatDatepickerModule],
 })
 export class MainModule {}
