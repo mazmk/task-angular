@@ -1,9 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import {
-  ELEMENT_DATA,
-  PeriodicElement,
-  Representative,
-} from './table-view-data';
+import { PeriodicElement, Representative } from './table-view-data';
 import { Table } from 'primeng/table';
 import { MenuItem } from 'primeng/api';
 
@@ -33,9 +29,6 @@ export class TableViewComponent {
   display: boolean = false;
   displayBasic: boolean = false;
   editTeacher: boolean = false;
-  toggleDialogue() {
-    this.display = !this.display;
-  }
 
   constructor(public dialog: MatDialog) {
     this.contextMenu = [
@@ -52,6 +45,10 @@ export class TableViewComponent {
     ];
   }
 
+  toggleDialogue() {
+    this.display = !this.display;
+  }
+
   editRow() {
     const index = this.teachers.findIndex(
       (i) => i.teacherId === this.contextItem.teacherId
@@ -60,17 +57,19 @@ export class TableViewComponent {
       this.editingTeacher = this.teachers[index];
     }
     const dialogRef = this.dialog.open(EditTeacherComponent, {
-      data: this.editingTeacher,
+      data: {...this.editingTeacher, index},
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      this.teachers[result.editingId] = result;
       this.editTeacher = true;
-      this.displayBasic = true;
-
-      console.log(`Dialog result: ${result}`);
+      if (result){
+        this.teachers[result.editinId] = result;
+        this.displayBasic = true;
+      }
     });
   }
+
+  // Function to find and delete the selected row
   deleteRow() {
     const index = this.teachers.findIndex(
       (i) => i.teacherId === this.contextItem.teacherId
@@ -89,11 +88,13 @@ export class TableViewComponent {
       this.view = item;
     }, 100);
   }
+
   handleCloseDetails(data: string | undefined) {
     if (data == 'clicked outside') {
       this.view = false;
     }
   }
+
   handleRowRightClick(data: PeriodicElement) {
     this.contextItem = data;
   }

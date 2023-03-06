@@ -15,6 +15,7 @@
   [globalFilterFields]="['name', 'gender', 'birthDate', 'status']"
 >
   <ng-template pTemplate="header">
+    <!-- Headings row with filters -->
     <tr>
       <th style="width: 3rem">
         <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
@@ -42,6 +43,7 @@
     <tr></tr
   ></ng-template>
 
+  <!-- Row for table data -->
   <ng-template pTemplate="body" let-teacher>
     <p-contextMenu
       [target]="contextMenuSource"
@@ -109,6 +111,7 @@
   ></app-view-teacher-info>
 </div>
 
+<!-- Dialog to confirm row deletion -->
 <p-dialog class="dlt-p-dialog" [(visible)]="display">
   <div class="confirm-dialogue">
     <img src="./assets/exclamation.png" width="100px" />
@@ -125,6 +128,7 @@
   </div>
 </p-dialog>
 
+<!-- Success Dialog for entry addition and deletion  -->
 <p-dialog
   class="dlt-p-dialog"
   [(visible)]="displayBasic"

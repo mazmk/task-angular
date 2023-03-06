@@ -22,6 +22,7 @@ export class SidebarComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
+    // Sidebar Menu Items & their icons
     this.items = [
       {
         label: 'Dashboard',
@@ -68,11 +69,13 @@ export class SidebarComponent implements OnInit {
   }
 
   addTeacher() {
+    // Function to open teacher info modal and return the result
     const dialogRef = this.dialog.open(EditTeacherComponent);
-
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
-      this.elementAdded.emit(result);
+      if (result){
+        // if case user cancels the form
+        this.elementAdded.emit(result);
+      }
     });
   }
 }
